@@ -177,8 +177,8 @@
   /* talks */
   .talks { display: grid; grid-template-columns: 1fr 1fr; gap: 56px 64px; }
   .talk { display: flex; flex-direction: column; gap: 12px; padding-top: 22px; border-top: 1px solid var(--line); }
-  .talk h3 { font-size: 26px; }
-  .talk p { color: var(--ink-soft); font-size: 18.5px; max-width: min(34ch, 100%); }
+  .talk h3 { font-size: 28px; line-height: 1.2; }
+  .talk p { color: var(--ink-soft); font-size: 18.5px; line-height: 1.5; }
   .talks-intro { display: grid; grid-template-columns: 5fr 6fr; gap: 24px 64px; align-items: start; margin-bottom: 48px; }
   .talks-intro > * { min-width: 0; }
   .talks-intro .lead { max-width: 100%; }
@@ -239,6 +239,8 @@
     .sec-head { grid-template-columns: 1fr; gap: 10px; margin-bottom: 28px; }
     .sec-head .rule { display: none; }
     .two, .two.flip, .talks, .luauto, .contact { grid-template-columns: 1fr; gap: 36px; }
+    .talk h3 { font-size: 22px; }
+    .talk p { font-size: 17px; }
     .about-photo { max-width: 360px; position: static; }
     .quote { font-size: 25px; }
     .stage { grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 0; }
@@ -377,13 +379,13 @@
       <div class="talks">
         <article class="talk">
           <span class="numeral">01</span>
-          <h3>Você está aprendendo certo?</h3>
-          <p>Por que estudar tanto não está te levando a lugar nenhum</p>
+          <h3>Você está aprendendo<br>certo?</h3>
+          <p>Por que estudar tanto não está<br>te levando a lugar nenhum</p>
         </article>
         <article class="talk">
           <span class="numeral">02</span>
-          <h3>Como virar o próximo criador de valor da sua geração</h3>
-          <p>Spoiler: não é fazendo o que todo mundo faz</p>
+          <h3>Como virar o próximo criador<br>de valor da sua geração</h3>
+          <p>Spoiler: não é fazendo<br>o que todo mundo faz</p>
         </article>
       </div>
       <p class="label sub-label" style="margin-top: 64px;">No palco</p>
