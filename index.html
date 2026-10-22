@@ -205,9 +205,9 @@
 
   /* signature + footer */
   .signoff { padding-block: 128px 24px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 28px; border-top: 1px solid var(--line); margin-top: 112px; }
+  .signoff-inner { display: inline-flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+  .signoff .sig { display: block; width: 440px; height: auto; margin-right: -10px; overflow: visible; }
   .signoff-line { font-size: clamp(38px, 5.6vw, 72px); line-height: 1.05; max-width: 16ch; }
-  .signoff-inner { display: inline-flex; flex-direction: column; align-items: flex-end; gap: 6px; }
-  .signoff .sig { width: 340px; height: auto; display: block; margin-right: -8px; }
   footer {
     margin-top: 48px; padding-block: 28px 56px; border-top: 1px solid var(--line);
     display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 24px;
@@ -247,8 +247,8 @@
     .strengths { grid-template-columns: 1fr; gap: 28px; }
     .band { margin-top: 80px; padding-block: 56px; }
     .signoff { padding-block: 88px 16px; margin-top: 80px; }
-    .signoff .sig { width: 230px; }
-    .band ul { gap: 22px 36px; }
+    .signoff .sig { width: 280px; margin-right: -6px; }
+      .band ul { gap: 22px 36px; }
     .band li { font-size: 21px; }
     h3 { font-size: 26px; }
   }
@@ -446,7 +446,7 @@
     <div class="signoff">
       <div class="signoff-inner">
         <p class="display signoff-line">Desconfie do <em>"sempre foi assim"</em>.</p>
-        <svg class="sig" id="sig" viewBox="0 0 1016 593" role="img" aria-label="Assinatura de Luenna"><defs><mask id="sigmask" maskUnits="userSpaceOnUse" x="0" y="0" width="1016" height="593"><g fill="none" stroke="#fff" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"><path d="M14 579 L53 512 L87 446 L91 442 L100 438 L102 435 L109 395 L119 363 L119 359 L115 351 L115 342 L120 312 L122 309 L125 289 L127 286 L127 280 L138 235 L142 226 L157 172 L178 113 L202 59 L222 27 L228 21 L238 19 L243 24 L243 42 L240 62 L231 100 L218 142 L214 150 L214 154 L175 257 L136 347 L127 356 L120 359"/><path d="M171 377 L180 346"/><path d="M171 378 L162 411 L162 420 L157 445 L147 451 L136 470 L128 478 L119 480 L111 473 L107 458 L106 444 L102 438"/><path d="M158 446 L170 455 L180 452 L189 443 L202 422 L206 418 L216 413 L225 377 L233 353 L239 342"/><path d="M218 415 L221 420 L224 440 L227 447 L234 455 L248 462 L272 462 L311 453 L313 451 L334 446 L383 429 L455 408 L469 406 L492 399 L503 398 L510 395 L590 381 L643 375 L722 370 L835 371 L888 376 L894 375"/><path d="M916 378 L945 382"/><path d="M968 384 L981 385 L997 389 L1003 388"/></g></mask></defs><image href="img/assinatura.png" width="1016" height="593" mask="url(#sigmask)"/></svg>
+        <svg class="sig" id="sig" viewBox="-10 -10 1036 613" role="img" aria-label="Assinatura de Luenna"><g fill="none" stroke="#9C7A3F" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"><path d="M14.2 578.1 C20.7 566.9 41.0 532.9 53.2 511.0 C65.3 489.1 78.9 459.7 86.9 447.0 C94.9 434.3 97.7 443.4 101.4 434.9 C105.1 426.4 106.4 408.2 109.3 396.0 C112.2 383.8 117.7 370.5 118.7 362.0 C119.6 353.5 114.8 353.2 115.1 345.0 C115.3 336.8 116.4 331.2 120.3 313.0 C124.2 294.8 131.9 260.0 138.2 236.0 C144.6 212.0 151.0 191.2 158.3 169.0 C165.7 146.8 175.0 121.3 182.4 103.0 C189.7 84.7 195.5 72.0 202.4 59.0 C209.4 46.0 219.5 31.4 224.1 25.0 C228.7 18.7 227.7 21.7 230.0 20.8 C232.3 19.9 236.1 19.4 238.0 19.7 C239.9 19.9 240.6 20.9 241.4 22.2 C242.2 23.4 242.7 24.0 242.9 27.0 C243.2 30.0 243.4 34.3 242.9 40.0 C242.3 45.7 241.8 51.0 239.8 61.0 C237.7 71.0 234.9 84.3 230.5 100.0 C226.0 115.7 221.1 132.2 213.1 155.0 C205.2 177.8 195.0 206.2 182.6 237.0 C170.2 267.8 147.0 321.0 138.7 340.0 C130.4 359.0 135.7 347.7 132.7 350.8 C129.8 353.8 122.8 357.2 120.9 358.5"/><path d="M171.5 376.1 L179.6 346.9"/><path d="M170.9 378.9 C169.5 384.2 164.7 400.3 162.5 411.0 C160.2 421.7 159.7 436.2 157.2 442.9 C154.7 449.6 151.0 446.8 147.5 451.1 C144.0 455.5 139.5 464.6 136.3 469.0 C133.0 473.4 130.2 475.7 128.0 477.4 C125.8 479.2 124.5 479.2 123.0 479.5 C121.5 479.8 120.9 480.4 119.0 479.4 C117.1 478.3 113.7 476.6 111.7 473.0 C109.8 469.4 108.5 462.8 107.4 458.0 C106.4 453.2 106.3 447.2 105.5 444.0 C104.7 440.8 103.2 439.7 102.8 438.9"/><path d="M158.9 446.7 C160.6 447.9 166.5 452.8 169.0 454.0 C171.5 455.2 172.3 454.3 174.0 454.0 C175.7 453.6 176.6 453.9 179.0 452.1 C181.4 450.3 184.5 448.2 188.5 443.0 C192.6 437.8 198.8 426.1 203.3 421.1 C207.7 416.0 211.0 422.3 215.4 412.8 C219.8 403.3 225.9 375.7 229.7 364.0 C233.5 352.3 236.9 346.4 238.3 342.9"/><path d="M218.7 415.9 C219.7 420.1 222.6 434.8 224.8 441.0 C227.1 447.2 229.5 449.9 232.1 452.9 C234.6 455.8 237.3 457.2 240.0 458.7 C242.7 460.1 243.2 461.0 248.0 461.5 C252.8 462.1 259.7 463.1 269.0 461.9 C278.3 460.8 280.8 461.3 304.0 454.6 C327.2 447.9 382.7 429.4 408.0 421.7 C433.3 414.0 438.8 412.7 456.0 408.2 C473.2 403.8 488.5 399.8 511.0 395.3 C533.5 390.8 568.7 384.6 591.0 381.2 C613.3 377.9 622.7 377.0 645.0 375.1 C667.3 373.3 694.0 370.8 725.0 370.1 C756.0 369.4 803.0 370.1 831.0 371.0 C859.0 371.9 882.8 374.7 893.1 375.4"/><path d="M916.9 378.1 L944.1 381.6"/><path d="M968.9 384.1 L1002.1 388.4"/></g></svg>
       </div>
     </div>
   </main>
@@ -482,27 +482,7 @@
     new IntersectionObserver(function(es,o){ es.forEach(function(e){ if(e.isIntersecting){ run(); o.disconnect(); } }); },{threshold:.35}).observe(el);
   } else run();
 })();
-(function(){
-  var svg=document.getElementById('sig'); if(!svg) return;
-  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var ps=[].slice.call(svg.querySelectorAll('mask path')); if(!ps.length || !ps[0].getTotalLength) return;
-  var L=ps.map(function(p){return p.getTotalLength();}), total=L.reduce(function(a,b){return a+b;},0);
-  ps.forEach(function(p,i){ p.style.strokeDasharray=L[i]+' '+L[i]; p.style.strokeDashoffset=L[i]; });
-  var DUR=5200, started=false;
-  function ease(t){ return t<.5 ? 2*t*t : 1-Math.pow(-2*t+2,2)/2; }
-  function draw(){
-    if(started) return; started=true; var t0=null;
-    function frame(ts){
-      if(!t0) t0=ts; var k=Math.min(1,(ts-t0)/DUR), done=ease(k)*total;
-      for(var i=0;i<ps.length;i++){ var v=Math.max(0,Math.min(L[i],done)); ps[i].style.strokeDashoffset=L[i]-v; done-=L[i]; }
-      if(k<1) requestAnimationFrame(frame);
-    }
-    setTimeout(function(){ requestAnimationFrame(frame); },500);
-  }
-  if('IntersectionObserver' in window){
-    new IntersectionObserver(function(es,o){ es.forEach(function(e){ if(e.isIntersecting){ draw(); o.disconnect(); } }); },{threshold:.6}).observe(svg);
-  } else draw();
-})();
+
 (function(){
   var imgs=[].slice.call(document.querySelectorAll('.stage img')), lb=document.getElementById('lb'); if(!lb||!imgs.length) return;
   var big=lb.querySelector('img'), ct=lb.querySelector('.ct'), cur=0, x0=null;
@@ -515,6 +495,24 @@
   document.addEventListener('keydown',function(e){ if(!lb.classList.contains('on')) return; if(e.key==='Escape') close(); if(e.key==='ArrowLeft') show(cur-1); if(e.key==='ArrowRight') show(cur+1); });
   lb.addEventListener('touchstart',function(e){ x0=e.touches[0].clientX; },{passive:true});
   lb.addEventListener('touchend',function(e){ if(x0===null) return; var dx=e.changedTouches[0].clientX-x0; if(Math.abs(dx)>45) show(cur+(dx<0?1:-1)); x0=null; });
+})();
+(function(){
+  var svg=document.getElementById('sig'); if(!svg) return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var ps=[].slice.call(svg.querySelectorAll('path')); if(!ps.length||!ps[0].getTotalLength) return;
+  var L=ps.map(function(p){ return p.getTotalLength(); }), total=L.reduce(function(a,b){ return a+b; },0);
+  ps.forEach(function(p,i){ p.style.strokeDasharray=(L[i]+1)+' '+(L[i]+1); p.style.strokeDashoffset=L[i]+1; });
+  var DUR=4200, started=false;
+  function ease(t){ return t<.5 ? 2*t*t : 1-Math.pow(-2*t+2,2)/2; }
+  function go(){
+    if(started) return; started=true; var t0=null;
+    function f(ts){ if(t0===null) t0=ts; var k=Math.min(1,(ts-t0)/DUR), left=ease(k)*total;
+      for(var i=0;i<ps.length;i++){ var v=Math.max(0,Math.min(L[i],left)); ps[i].style.strokeDashoffset=(L[i]+1)-v; left-=L[i]; }
+      if(k<1) requestAnimationFrame(f); else ps.forEach(function(p){ p.style.strokeDasharray='none'; }); }
+    setTimeout(function(){ requestAnimationFrame(f); },400);
+  }
+  if('IntersectionObserver' in window){ new IntersectionObserver(function(es,o){ es.forEach(function(e){ if(e.isIntersecting){ go(); o.disconnect(); } }); },{threshold:.5}).observe(svg); }
+  else go();
 })();
 </script>
 
