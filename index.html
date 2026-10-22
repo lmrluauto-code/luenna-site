@@ -194,11 +194,7 @@
   .signoff { padding-block: 128px 24px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 28px; border-top: 1px solid var(--line); margin-top: 112px; }
   .signoff-line { font-size: clamp(38px, 5.6vw, 72px); line-height: 1.05; max-width: 16ch; }
   .signoff-inner { display: inline-flex; flex-direction: column; align-items: flex-end; gap: 6px; }
-  .signoff .sig { width: 300px; height: auto; margin-top: 0; margin-right: -4px; clip-path: inset(0 100% 0 0); }
-  .signoff .sig.write { animation: write 4.8s cubic-bezier(.55,.05,.6,.95) forwards; animation-delay: .4s; }
-  @keyframes write { to { clip-path: inset(0 0 0 0); } }
-  @media (prefers-reduced-motion: reduce) { .signoff .sig { clip-path: none; animation: none; } }
-  .no-io .signoff .sig { clip-path: none; }
+  .signoff .sig { width: 340px; height: auto; display: block; margin-right: -8px; }
   footer {
     margin-top: 48px; padding-block: 28px 56px; border-top: 1px solid var(--line);
     display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 24px;
@@ -236,7 +232,7 @@
     .strengths { grid-template-columns: 1fr; gap: 28px; }
     .band { margin-top: 80px; padding-block: 56px; }
     .signoff { padding-block: 88px 16px; margin-top: 80px; }
-    .signoff .sig { width: 210px; }
+    .signoff .sig { width: 230px; }
     .band ul { gap: 22px 36px; }
     .band li { font-size: 21px; }
     h3 { font-size: 26px; }
@@ -439,7 +435,7 @@
     <div class="signoff">
       <div class="signoff-inner">
         <p class="display signoff-line">Desconfie do <em>"sempre foi assim"</em>.</p>
-        <img class="sig" id="sig" src="img/assinatura.png" alt="Assinatura de Luenna" width="1055" height="622">
+        <svg class="sig" id="sig" viewBox="0 0 1016 593" role="img" aria-label="Assinatura de Luenna"><defs><mask id="sigmask" maskUnits="userSpaceOnUse" x="0" y="0" width="1016" height="593"><g fill="none" stroke="#fff" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"><path d="M14 579 L53 512 L87 446 L91 442 L100 438 L102 435 L109 395 L119 363 L119 359 L115 351 L115 342 L120 312 L122 309 L125 289 L127 286 L127 280 L138 235 L142 226 L157 172 L178 113 L202 59 L222 27 L228 21 L238 19 L243 24 L243 42 L240 62 L231 100 L218 142 L214 150 L214 154 L175 257 L136 347 L127 356 L120 359"/><path d="M171 377 L180 346"/><path d="M171 378 L162 411 L162 420 L157 445 L147 451 L136 470 L128 478 L119 480 L111 473 L107 458 L106 444 L102 438"/><path d="M158 446 L170 455 L180 452 L189 443 L202 422 L206 418 L216 413 L225 377 L233 353 L239 342"/><path d="M218 415 L221 420 L224 440 L227 447 L234 455 L248 462 L272 462 L311 453 L313 451 L334 446 L383 429 L455 408 L469 406 L492 399 L503 398 L510 395 L590 381 L643 375 L722 370 L835 371 L888 376 L894 375"/><path d="M916 378 L945 382"/><path d="M968 384 L981 385 L997 389 L1003 388"/></g></mask></defs><image href="img/assinatura.png" width="1016" height="593" mask="url(#sigmask)"/></svg>
       </div>
     </div>
   </main>
@@ -475,9 +471,25 @@
   } else run();
 })();
 (function(){
-  var sig=document.querySelector('.signoff .sig'); if(!sig) return;
-  if(!('IntersectionObserver' in window)){ sig.classList.add('write'); return; }
-  new IntersectionObserver(function(es,o){ es.forEach(function(e){ if(e.isIntersecting){ sig.classList.add('write'); o.disconnect(); } }); },{threshold:.5}).observe(sig.parentNode);
+  var svg=document.getElementById('sig'); if(!svg) return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var ps=[].slice.call(svg.querySelectorAll('mask path')); if(!ps.length || !ps[0].getTotalLength) return;
+  var L=ps.map(function(p){return p.getTotalLength();}), total=L.reduce(function(a,b){return a+b;},0);
+  ps.forEach(function(p,i){ p.style.strokeDasharray=L[i]+' '+L[i]; p.style.strokeDashoffset=L[i]; });
+  var DUR=5200, started=false;
+  function ease(t){ return t<.5 ? 2*t*t : 1-Math.pow(-2*t+2,2)/2; }
+  function draw(){
+    if(started) return; started=true; var t0=null;
+    function frame(ts){
+      if(!t0) t0=ts; var k=Math.min(1,(ts-t0)/DUR), done=ease(k)*total;
+      for(var i=0;i<ps.length;i++){ var v=Math.max(0,Math.min(L[i],done)); ps[i].style.strokeDashoffset=L[i]-v; done-=L[i]; }
+      if(k<1) requestAnimationFrame(frame);
+    }
+    setTimeout(function(){ requestAnimationFrame(frame); },500);
+  }
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es,o){ es.forEach(function(e){ if(e.isIntersecting){ draw(); o.disconnect(); } }); },{threshold:.6}).observe(svg);
+  } else draw();
 })();
 </script>
 
